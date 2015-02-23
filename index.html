@@ -35,11 +35,26 @@
           </form>
         </div>
       </div>
+      <div class="row" ng-show="restaurants.length">
+        <div class="col-md-12">
+          <h4>Search Restaurants</h4>
+          <h5>Type in a the restaurant name, food type, location, or price range.</h5>
+
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <input ng-model="query" type="text" class="form-control" id="restaurant-name" placeholder="Search">
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6">
-          <h2>Restaurant list</h2>
+          <h2 ng-show="restaurants.length && filtered.length">Restaurant list</h2>
+          <h2 ng-show="restaurants.length && !filtered.length">No matches</h2>
+          <h3 ng-show="restaurants.length">Click on a restaurant name, type, location, or price range to edit.</h3>
+
           <dl>
-            <dt ng-repeat-start="item in restaurants">
+            <dt ng-repeat-start="item in filtered = (restaurants | filter:query)">
               <span ng-click="editing = true" ng-hide="editing">
               {{item.name}} <a ng-click="deleteRestaurant(item)">Delete</a>
               </span>
