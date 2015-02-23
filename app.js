@@ -1,1 +1,1 @@
-var  = angular.module('', []);
+var bestRestaurants = angular.module('bestRestaurants', []);
