@@ -11,7 +11,7 @@ bestRestaurants.controller('RestaurantsCtrl', function RestaurantsCtrl($scope) {
     $scope.restaurantName=null;
     $scope.restaurantFood=null;
     $scope.restaurantLocation=null;
-    $scope.restaurantPrice=null;
+    $scope.restaurantPrice="";
 
   };
 
