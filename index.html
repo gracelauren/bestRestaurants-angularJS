@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Best Restaurants</title>
     <script src="lib/angular.js"></script>
+    <script src="js/checklist-model.js"></script>
     <script src="app.js"></script>
     <script src="js/RestaurantsController.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <div class="container" ng-controller="RestaurantsCtrl">
@@ -17,11 +19,21 @@
             <div class="form-group">
               <input type="text" ng-model="restaurantName" class="form-control" placeholder="Enter Name" required>
             </div>
+          <div class="form-group">
+            <p>Food Types</p>
+            <label ng-repeat="foodType in foodTypes">
+              <input type="checkbox" checklist-model="restaurantFood.foodTypes" checklist-value="foodType"> {{foodType}}
+            </label>
+          </div>
             <div class="form-group">
-              <input type="text" ng-model="restaurantFood" class="form-control" placeholder="Enter Food Type" required>
-            </div>
-            <div class="form-group">
-              <input type="text" ng-model="restaurantLocation" class="form-control" placeholder="Enter Location" required>
+              <select ng-model="restaurantLocation" required>
+                <option disabled value="">Select Location</option>
+                <option value="Downtown">Downtown</option>
+                <option value="Southwest">Southwest</option>
+                <option value="Southeast">Southeast</option>
+                <option value="Northwest">Northwest</option>
+                <option value="Norteast">Northeast</option>
+              </select>
             </div>
             <div class="form-group">
               <select ng-model="restaurantPrice" required>

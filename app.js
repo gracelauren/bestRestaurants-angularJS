@@ -1,1 +1,1 @@
-var bestRestaurants = angular.module('bestRestaurants', []);
+var bestRestaurants = angular.module('bestRestaurants', ["checklist-model"]);
