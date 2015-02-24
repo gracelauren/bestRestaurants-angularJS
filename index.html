@@ -36,6 +36,9 @@
               </select>
             </div>
             <div class="form-group">
+              <input type="text" class="form-control" ng-model= "restaurantAddress" placeholder="Restaurant address" required>
+            </div>
+            <div class="form-group">
               <select ng-model="restaurantPrice" required>
                 <option disabled value="">Select Price Range</option>
                 <option value="$0-15">$0-15</option>
@@ -96,6 +99,17 @@
               <span class="form-group" ng-show="locationEditing" ng-submit="locationEditing = false">
                 <form class="form-inline" role="form">
                   <input type="text" class="form-control input-sm" ng-model="item.location" placeholder="Location" required>
+                  <button class="btn btn-default btn-sm" type="submit">Save</button>
+                </form>
+              </span>
+            </dd>
+            <dd>-- Address:
+              <span ng-click="addressEditing = true" ng-hide="addressEditing">
+              {{item.address}}
+              </span>
+              <span class="form-group" ng-show="addressEditing" ng-submit="addressEditing = false">
+                <form class="form-inline" role="form">
+                  <input type="text" class="form-control input-sm" ng-model="item.address" placeholder="Address" required>
                   <button class="btn btn-default btn-sm" type="submit">Save</button>
                 </form>
               </span>
